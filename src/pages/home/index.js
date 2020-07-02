@@ -1,11 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TudoList from '../../components/TudosList';
 import Clock from '../../components/TimeClock';
-import { saveTodoListLocal, getTodoListLocal } from '../../cache/cacheUtil';
 import Language from '../../components/Language';
+import todoApi from '../../api/todo';
 
 function Home() {
-  const [dataTask, setDataTask] = useState(getTodoListLocal() || []);
+  const [dataTask, setDataTask] = useState([]);
+
+  useEffect(() => {
+    const fetchProductList = async () => {
+      try {
+        const response = await todoApi.getAll();
+        setDataTask(response);
+      } catch (error) {
+        console.log('Failed to fetch product list: ', error);
+      }
+    }
+
+    fetchProductList();
+  }, []);
 
   function onDelete(id) {
     const taskIndex = dataTask.findIndex((item) => {
@@ -14,7 +27,6 @@ function Home() {
     const newData = [...dataTask];
     newData.splice(taskIndex, 1);
     setDataTask(newData);
-    saveTodoListLocal(newData);
   }
 
   function onAddNew() {
@@ -22,7 +34,6 @@ function Home() {
     const newData = [...dataTask];
     newData.push(task);
     setDataTask(newData);
-    saveTodoListLocal(newData);
   }
 
   return (
