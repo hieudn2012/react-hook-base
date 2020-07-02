@@ -6,6 +6,7 @@ import shortid from 'shortid';
 import * as CONST from '../../const';
 import { setTastEdit } from '../../redux/actions/todo';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 TudoList.propTypes = {
   data: PropTypes.array.isRequired,
@@ -22,6 +23,9 @@ function TudoList({ data, onDelete, onAddNew }) {
 
   // const taskStore = useSelector(state => state.taskReducer.task);
   const dispatch = useDispatch();
+
+  // i18n Translate
+  const { t } = useTranslation();
 
   const [isAddNew, setIsAddNew] = useState(false);
   const [taskName, setTaskName] = useState('');
@@ -104,6 +108,7 @@ function TudoList({ data, onDelete, onAddNew }) {
   return (
     <div>
       {isAddNew && renderAddNew()}
+      <h2>{t('Welcome to React')}</h2>
       <button
         className={`btn btn-${isAddNew ? 'danger' : 'primary'} mb-4`}
         onClick={addNew}>

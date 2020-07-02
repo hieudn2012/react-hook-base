@@ -3,8 +3,10 @@ import './App.css';
 import Home from './pages/home';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import './i18n';
 
 function App() {
+  
   return (
     <Provider store={store}>
       <Home />

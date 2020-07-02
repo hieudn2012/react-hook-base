@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TudoList from '../../components/TudosList';
 import Clock from '../../components/TimeClock';
 import { saveTodoListLocal, getTodoListLocal } from '../../cache/cacheUtil';
+import Language from '../../components/Language';
 
 function Home() {
   const [dataTask, setDataTask] = useState(getTodoListLocal() || []);
@@ -27,6 +28,7 @@ function Home() {
   return (
     <div className="container">
       <Clock />
+      <Language />
       <div className="row d-flex justify-content-center mt-5">
         <div className="col-md-10">
           <TudoList
