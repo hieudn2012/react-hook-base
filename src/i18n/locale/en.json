@@ -1,3 +1,6 @@
 {
-  "Welcome to React": "English"
+  "Welcome to React": "English",
+  "message": {
+    "empty": "Please input value"
+  }
 }

@@ -1,3 +1,6 @@
 {
-  "Welcome to React": "Viet Nam"
+  "Welcome to React": "Tiếng Việt",
+  "message": {
+    "empty": "Vui lòng nhập giá trị"
+  }
 }

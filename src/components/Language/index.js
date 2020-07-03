@@ -15,8 +15,8 @@ function Language() {
   return (
     <div className="position-absolute" style={{ top: 10, left: 20 }}>
       <select onChange={(e) => onChangeLang(e.target.value)} defaultValue={lang}>
-        <option value="en">English</option>
-        <option value="vi">VietNames</option>
+        <option value="en">EN</option>
+        <option value="vi">VI</option>
       </select>
     </div>
   )
